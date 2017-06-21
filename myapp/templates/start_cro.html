@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+
+</head>
+
+<body>
+    
+    <div class='main'>
+        <div class="buttons">
+            <div class='info'>
+               Informacija 
+            </div>
+             <div class="language">
+                <a href="/cro">HR</a>
+            </div>
+            <div class="language">
+                <a href="/">UA</a>
+            </div>
+        </div>
+        
+        <div class='logo'>
+            <img src='{% static "img/logo1.png" %}' class="logo">
+        </div>
+        
+    <div class="forms">
+    <form name = "form" action = "/insert_cro/"  method = "GET" >
+
+    <input type = "text" placeholder = "Unesite brojku ili riječ" name = "number" />
+            
+    <button type = "submit" value = "search" >
+        <strong>Traži</strong>
+    </button>
+        </form>
+    </div>
+        
+    <br>
+    </div>
+
+<div class="footer">
+</div>
+
+</body>
+
+</html>

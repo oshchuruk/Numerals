@@ -1,0 +1,157 @@
+table, th, td {
+    border: 1px solid black;
+}
+
+html,body{
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+    background: url(../img/background.png);
+    background-size: 1000px;
+    font-family: 'PT Sans', sans-serif;
+}
+
+div.main{
+    margin: auto;
+    width: 1000px;
+    min-height: 100%;
+    padding: 0px;
+    background-color: white;
+    position: relative;
+}
+
+div.buttons{
+    height: 50px;
+    background-color: #EF294E;
+}
+
+div.logo{
+    height: 150px;
+    background-color: #ffd02a;
+    text-align: center;
+    vertical-align:middle;
+    line-height: 150px; 
+    position: relative;
+}
+
+span.logo_temp{
+    font-size: 125px;
+    font-weight: bold;
+}
+
+div.language{
+    float: right;
+    height: 100%;
+    width: 50px;
+    text-align: center;
+    vertical-align:middle;
+    line-height: 50px;  
+}
+
+div.language:hover{
+    background-color: #ffd02a;
+}
+
+div.info{
+    float: left;
+    height: 100%;
+    width: 150px;
+    text-align: center;
+    vertical-align:middle;
+    line-height: 50px; 
+}
+
+div.info:hover{
+    background-color: #ffd02a;
+}
+
+div.forms{
+    margin: 20px 200px;
+    width: 650px;
+}
+
+div.footer{
+    position: absolute;
+    height: 30px;
+    width: 100%;
+    background-color: #0909a5;
+}
+
+input{
+    height: 30px;
+    width: 400px;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 15px;
+}
+
+button{
+    height: 35px;
+    width: 70px;
+    border: none;
+    background-color: #EF294E;
+}
+
+button:hover{
+    background-color: #ffd02a;
+}
+
+div.content{
+    margin-left: 10px;
+    font-size: 20px;
+    padding: 10px 0px;
+}
+
+div.content a{
+    text-decoration: none;
+    color: #0909a5;
+}
+
+p{
+    margin-left: 20px;
+}
+
+table{
+    border-collapse:collapse;
+    border:solid #0909a5 1px;
+    margin-left: 20px;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    max-width: 980px;
+    word-break: break-all;
+}
+
+td, th {
+    border-color: #0909a5;
+    border-left:solid #0909a5 1px;
+    border-top:solid #0909a5 1px;
+    padding: 5px;
+    text-align: left;
+}
+
+p.num{
+    margin-left: 10px;
+    font-size: 25px;
+}
+
+img.logo{
+    width: 700px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+ul{
+        margin-left: 20px;
+}
+
+a{
+    color: #0909a5;
+    text-decoration: underline;
+}
+
+div.language a{
+    text-decoration: none;
+}

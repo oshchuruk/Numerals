@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello</title>
+    <style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+</head>
+
+   <body>
+   <a href="/connection">UA</a>
+   <a href="/connection_cro"><strong>HR</strong></a>
+   <form name = "form" action = "{% url 'insert_cro' %}"
+         method = "GET" >{% csrf_token %}
+
+         <div style = "max-width:470px;">
+            <center>
+               <input type = "text" style = "margin-left:20%;"
+                  placeholder = "Identifiant" name = "number" required>
+            </center>
+         </div>
+
+               <button type = "submit" value = "Login" >
+                  <strong>Login</strong>
+               </button>
+
+
+      </form>
+   <br>
+
+   {{cardinal|safe|escape}}
+
+   {{ordinal|safe|escape}}
+
+   {{zbirny|safe|escape}}
+
+   </body>
+
+</html>
