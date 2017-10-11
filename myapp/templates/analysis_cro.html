@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<title>{{title}}</title>
 <meta charset="UTF-8">
 {% load static %}
+<link rel="shortcut icon" href="{% static 'img/ikonka.ico'%}">
+
 <link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}">
 <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
 
@@ -43,13 +46,13 @@
         </div>
         
         <div class='logo'>
-            <img src='{% static "img/logo1.png" %}' class="logo">
+            <a href="/cro"><img src='{% static "img/logo1.png" %}' class="logo"></a>
         </div>
         
     <div class="forms">
     <form name = "form" action = "/insert_cro/"  method = "GET" >
 
-    <input type = "text" placeholder = "Unesite brojku ili riječ" name = "number" />
+    <input type = "text" placeholder = "Unesite brojku ili riječ" name = "number" value = "{{inp}}"/>
             
     <button type = "submit" value = "search" >
         <strong>Traži</strong>

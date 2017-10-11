@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Numerals</title>
+<title>Помилка</title>
 {% load static %}
 <link rel="shortcut icon" href="{% static 'img/ikonka.ico'%}">
 <link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}">
@@ -11,11 +11,11 @@
 </head>
 
 <body>
-    
+
     <div class='main'>
         <div class="buttons">
             <div class='info'>
-               Informacija 
+               Інформація
             </div>
              <div class="language">
                 <a href="/cro">HR</a>
@@ -24,22 +24,24 @@
                 <a href="/">UA</a>
             </div>
         </div>
-        
-        <div class='logo'>
-            <a href="/cro"><img src='{% static "img/logo1.png" %}' class="logo"></a>
-        </div>
-        
-    <div class="forms">
-    <form name = "form" action = "/insert_cro/"  method = "GET" >
 
-    <input type = "text" placeholder = "Unesite brojku ili riječ" name = "number" />
-            
+        <div class='logo'>
+            <a href="/"><img src='{% static "img/logo1.png" %}' class="logo"></a>
+        </div>
+
+    <div class="forms">
+    <form name = "form" action = "/insert/"  method = "GET" >
+
+    <input type = "text" placeholder = "Введіть число або словоформу" name = "number" />
+
     <button type = "submit" value = "search" >
-        <strong>Traži</strong>
+        <strong>Пошук</strong>
     </button>
         </form>
     </div>
-        
+
+        <p>Сталася помилка! Перевірте введені дані і повторіть пошук.</p>
+
     <br>
     </div>
 

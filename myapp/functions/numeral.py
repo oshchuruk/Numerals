@@ -469,7 +469,10 @@ def make_forms():
                 i += 1
 
         if len(digits) > 2:
-            digits.insert(0, str(int(digits[0]) + int(digits[1])))
+            if digits[1] == '1000':
+                digits.insert(0, str(int(digits[0]) * int(digits[1])))
+            else:
+                digits.insert(0, str(int(digits[0]) + int(digits[1])))
             #print(digits[1])
             del digits[1]
             #print(digits[2])
@@ -496,8 +499,11 @@ def make_numeral(num):
 
     while mode < 4:
         number = num
-        digits, ready_digits = make_digits(num)
-        result = make_forms()
+        try:
+            digits, ready_digits = make_digits(num)
+            result = make_forms()
+        except:
+            result = 'error'
         big_result.append(result)
         mode += 1
 

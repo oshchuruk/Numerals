@@ -243,6 +243,14 @@ def make_digits(number):
 
     #print(digits)
 
+    i = 0
+
+    while i < len(digits):
+        if number != '10' and digits[i] == '10' and int(digits[i + 1]) in range(1, 10):
+            digits[i] = str(int(digits[i]) + int(digits[i + 1]))
+            del digits[i + 1]
+        i += 1
+
     ready_digits = dict()
 
     for number in digits:
@@ -278,17 +286,49 @@ def make_forms():
         return end_forms_2
 
     elif len(digits) > 1:
+        print(digits)
         forms1 = ready_digits[digits[0]]
         forms2 = ready_digits[digits[1]]
 
+        if int(digits[0]) > 999 :
+            if digits[1] == '1000' and(digits[0][-1] in ['1', '2'] and digits[0][-2:] not in ['12', '11']):
+                forms1 = forms1[2]
+            temp_l = []
+            i = 0
+            while i < 7:
+                temp_l.append(forms1[0])
+                i += 1
+            forms1 = temp_l
+
         if digits[1] == '1000':
-            if digits[0][-1] == '1' or digits[0][-1] == '2':
+            # if int(digits[0])>9 and digits[0][-1] in ['1','2','3','4']:
+            #     if digits[1] == '1000' and (digits[0][-1] == '1' or digits[0][-1] == '2'):
+            #         forms1 = forms1[2]
+            #     temp_l = []
+            #     i = 0
+            #     while i < 7:
+            #         temp_l.append(forms1[0])
+            #         i += 1
+            #     forms1 = temp_l
+            if digits[0][-1] in ['1', '2'] and digits[0][-2:] not in ['12', '11']:
                 forms1 = forms1[2]
 
-            if digits[0][-1] == '1':
+            if digits[0][-1] == '1' and digits[0][-2:] != '11':
                 forms2 = forms2[1]
+            elif digits[0][-1] in ['2','3','4'] and digits[0][-2:] not in ['12', '13', '14']:
+                forms2 = forms2[2]
             else:
                 forms2 = forms2[2]
+                temp_l = []
+                i = 0
+                while i < 7:
+                    temp_l.append(forms2[1])
+                    i += 1
+                forms2 = temp_l
+
+            # print(forms1)
+            # print(forms2)
+
 
         if mode == 2 and len(digits) == 2:
             forms_temp = list()
@@ -346,7 +386,10 @@ def make_forms():
                 i += 1
 
         if len(digits) > 2:
-            digits.insert(0, str(int(digits[0]) + int(digits[1])))
+            if digits[1] == '1000':
+                digits.insert(0, str(int(digits[0]) * int(digits[1])))
+            else:
+                digits.insert(0, str(int(digits[0]) + int(digits[1])))
             # print(digits[1])
             del digits[1]
             # print(digits[2])
@@ -372,6 +415,12 @@ def make_numeral(num):
 
     while mode < 4:
         number = num
+        # try:
+        #     digits, ready_digits = make_digits(num)
+        #     result = make_forms()
+        # except:
+        #     result = 'error'
+        #     print('aaaaaaa')
         digits, ready_digits = make_digits(num)
         result = make_forms()
         big_result.append(result)

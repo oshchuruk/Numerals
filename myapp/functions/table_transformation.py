@@ -12,19 +12,22 @@ cro_cases_list = ['N', 'G', 'D', 'A', 'V', 'L', 'I']
 cro_cases_list_plus = ['ominativ', 'enitiv', 'ativ', 'kuzativ', 'okativ', 'okativ', 'nstrumental']
 cro_gender_list_1 = ['muški rod jednine', 'ženski rod jednine', 'sredni rod jednine', 'muški rod množine', 'zenski rod množine', 'sredni rod množine']
 cro_gender_list_2 = ['muški rod', 'ženski rod', 'sredni rod']
-cro_gender_list_3 = ['promjenljivo osoba', 'promjenljivo ostalo', 'nepromjenljivo uz nebrojive imenice']
+cro_gender_list_3 = ['promjenljivo, osoba', 'promjenljivo, ostalo', 'nepromjenljivo uz nebrojive imenice']
 cro_gender_list_4 = ['jednina', 'množina']
-cro_forms_list = ['glavni brojevi', 'redni pridjevi', 'zbirni brojevi']
+cro_forms_list = ['glavni broj', 'redni pridjev', 'zbirni broj']
 
 
 def make_header(obj, forms):
     result = '<p class="num">'
     result += obj + ' - '
+    title = obj + ' - '
     if type(forms) is list:
         result += forms[0][0] + '</p>'
+        title += forms[0][0]
     else:
         result += forms[1][0][0] + '</p>'
-    return result
+        title += forms[1][0][0]
+    return result, title
 
 
 def make_table(obj, iterat):
@@ -60,11 +63,17 @@ def make_table(obj, iterat):
             html_st += cases_list[i] + '\n'
             html_st += '</td>\n<td>\n'
             for item in sublist:
-                if i == 5:
-                    html_st += 'на '
-                html_st += item
+                if sublist.index(item) == 0:
+                    if i == 5:
+                        html_st += 'на '
+                    html_st += item
+                else:
+                    html_st += '<p style="margin:10px 0 0 0">'
+                    if i == 5:
+                        html_st += 'на '
+                    html_st += item + '</p>'
                 if sublist.index(item) != len(sublist)-1:
-                    html_st += '\n<br>\n'
+                    html_st += '\n\n'
             html_st += '</td>\n</tr>\n'
             i += 1
         html_st += '<tr>\n<td>\n'
@@ -91,11 +100,17 @@ def make_table(obj, iterat):
             while j <= len(list(obj.keys())):
                 html_st += '<td>\n'
                 for item in obj[j][i]:
-                    if i == 5:
-                        html_st += 'на '
-                    html_st += item
+                    if obj[j][i].index(item) == 0:
+                        if i == 5:
+                            html_st += 'на '
+                        html_st += item
+                    else:
+                        html_st += '<p style="margin:10px 0 0 0">'
+                        if i == 5:
+                            html_st += 'на '
+                        html_st += item + '</p>'
                     if obj[j][i].index(item) != len(obj[j][i]) - 1:
-                        html_st += '\n<br>\n'
+                        html_st += '\n\n'
                 html_st += '</td>\n'
                 j += 1
             html_st += '</tr>'
@@ -109,7 +124,7 @@ def make_table(obj, iterat):
             for item in obj[j][0]:
                 html_st += item
                 if obj[j][0].index(item) != len(obj[j][0]) - 1:
-                    html_st += '\n<br>\n'
+                    html_st += '\n\n'
             html_st += '</td>\n'
             j += 1
         html_st += '</tr>\n'
@@ -154,9 +169,17 @@ def make_table_cro(obj, tip):
             html_st += cro_cases_list[i] + '\n'
             html_st += '</td>\n<td>\n'
             for item in sublist:
-                html_st += item
+                if sublist.index(item) == 0:
+                    if i == 5:
+                        html_st += 'na '
+                    html_st += item
+                else:
+                    html_st += '<p style="margin:10px 0 0 0">'
+                    if i == 5:
+                        html_st += 'na '
+                    html_st += item + '</p>'
                 if sublist.index(item) != len(sublist)-1:
-                    html_st += '\n<br>\n'
+                    html_st += '\n\n'
             html_st += '</td>\n</tr>\n'
             i += 1
 
@@ -184,9 +207,17 @@ def make_table_cro(obj, tip):
             while j < len(res_list)+1:
                 html_st += '<td>\n'
                 for item in obj[j][i]:
-                    html_st += item
+                    if obj[j][i].index(item) == 0:
+                        if i == 5:
+                            html_st += 'na '
+                        html_st += item
+                    else:
+                        html_st += '<p style="margin:10px 0 0 0">'
+                        if i == 5:
+                            html_st += 'na '
+                        html_st += item + '</p>'
                     if obj[j][i].index(item) != len(obj[j][i]) - 1:
-                        html_st += '\n<br>\n'
+                        html_st += '\n\n'
                 html_st += '</td>\n'
                 j += 1
             html_st += '</tr>'

@@ -108,7 +108,8 @@ def numeral_to_digits(num, lang):
                 res = analyze_form(num[match_list.index(item)], str(digit), lang)
                 #print(res)
                 if res == []:
-                    item.remove(digit)
+                    while digit in item:
+                        item.remove(digit)
     #print(match_list)
 
     result = 0

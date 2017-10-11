@@ -24,8 +24,8 @@ admin.autodiscover()
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^hello/(?P<inp_number>.+)/$', views.hello, name='hello'),
-    url(r'^hello_cro/(?P<inp_number>.+)/$', views.hello_cro, name='hello_cro'),
+    url(r'^hello/(?P<inp_number>.*)/$', views.hello, name='hello'),
+    url(r'^hello_cro/(?P<inp_number>.*)/$', views.hello_cro, name='hello_cro'),
     url(r'^insert/', views.insert, name='insert'),
     url(r'^insert_cro/', views.insert_cro, name='insert_cro'),
     url(r'^$', TemplateView.as_view(template_name='start_ukr.html')),
