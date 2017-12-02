@@ -28,6 +28,9 @@ urlpatterns = [
     url(r'^hello_cro/(?P<inp_number>.*)/$', views.hello_cro, name='hello_cro'),
     url(r'^insert/', views.insert, name='insert'),
     url(r'^insert_cro/', views.insert_cro, name='insert_cro'),
+    url(r'^insert_mod/', views.insert_mod, name='insert_mod'),
+    url(r'^modify_wow/(?P<st>.*)/$', views.modify_wow, name='modify_wow'),
     url(r'^$', TemplateView.as_view(template_name='start_ukr.html')),
     url(r'^cro/', TemplateView.as_view(template_name='start_cro.html')),
+    url(r'^modify/', TemplateView.as_view(template_name='modify_ukr.html')),
 ]

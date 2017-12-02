@@ -1,13 +1,13 @@
+from django.shortcuts import redirect
 from django.shortcuts import render
-import datetime
-import myapp.functions.numeral as num
-import myapp.functions.table_transformation as transform
+
 import myapp.functions.analysis as analysis
 import myapp.functions.cro_numeral as cro_num
+import myapp.functions.numeral as num
 import myapp.functions.phrasal as phrasal
+import myapp.functions.table_transformation as transform
 from myapp.forms import mainForm
-from django.http import HttpResponseRedirect
-from django.shortcuts import redirect
+from myapp.functions import modify as modify
 
 
 def hello(request, inp_number):
@@ -72,6 +72,11 @@ def hello_cro(request, inp_number):
                                                       "ordinal" : ordinal, "zbirny" : zbirny, 'fraz' : fraz, 'inp' : inp_number})
 
 
+def modify_wow(request, st):
+    result = modify.transform_numeral(st)
+
+    return render(request, "modify_ukr.html", {'result': result, "source":st})
+
 def insert(request):
     myform = mainForm(request.GET)
     number = myform.data['number']
@@ -82,3 +87,11 @@ def insert_cro(request):
     myform = mainForm(request.GET)
     number = myform.data['number']
     return redirect('hello_cro', inp_number=number)
+
+def insert_mod(request):
+    myform = mainForm(request.POST)
+    st = myform.data['st']
+    return redirect('modify_wow', st=st)
+
+
+

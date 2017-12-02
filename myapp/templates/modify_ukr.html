@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>{{title}}</title>
+<title>Numerals - Перетворення</title>
 {% load static %}
 <link rel="shortcut icon" href="{% static 'img/ikonka.ico'%}">
 <link rel="stylesheet" type="text/css" href="{% static 'style/style.css' %}">
@@ -15,10 +15,9 @@
     <div class='main'>
         <div class="buttons">
             <div class='info'>
-                              <a href="/modify">Перетворення</a>
-
+               <a href="/modify">Перетворення</a>
             </div>
-            <div class="language">
+             <div class="language">
                 <a href="/cro">HR</a>
             </div>
             <div class="language">
@@ -31,25 +30,29 @@
         </div>
         
     <div class="forms">
-    <form name = "form" action = "/insert/"  method = "GET" >
+    <form name = "form" action = "/insert_mod/"  method = "POST" >{% csrf_token %}
 
-    <input type = "text" placeholder = "Введіть число або словоформу" name = "number" value = "{{inp}}"/>
+    <textarea style="height: 150px;
+    width: 600px;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 15px;" placeholder = "Введіть речення" name = "st">{{source}}</textarea>
             
-    <button type = "submit" value = "search" >
-        <strong>Пошук</strong>
+    <button type = "submit" value = "search" style = "width:150px">
+        <strong>Перетворити</strong>
     </button>
         </form>
     </div>
-        {{header|safe|escape}}
-        {{result|safe|escape}}
-        {{paradigm|safe|escape}}
 
-
-    
-        <br>
+        <div class = "forms">
+        <p>
+            {{result}}
+        </p>
     </div>
-    
-    
+        
+    <br>
+    </div>
+
+
 
 <div class="footer">
 </div>
