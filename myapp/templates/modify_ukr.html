@@ -1,0 +1,25 @@
+{% extends 'base_ukr.html' %}
+
+{% block content %}
+        
+    <div class="forms">
+    <form name = "form" action = "/insert_mod/"  method = "POST" >{% csrf_token %}
+
+    <textarea style="height: 150px;
+    width: 600px;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 15px;" placeholder = "Введіть речення" name = "st">{{source}}</textarea>
+            
+    <button type = "submit" value = "search" style = "width:150px">
+        <strong>Перетворити</strong>
+    </button>
+        </form>
+    </div>
+
+        <div class = "forms">
+        <p>
+            {{result}}
+        </p>
+    </div>
+        
+ {% endblock %}
