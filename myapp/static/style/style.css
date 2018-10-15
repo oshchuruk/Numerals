@@ -57,7 +57,7 @@ div.info{
     height: 100%;
     width: 150px;
     text-align: center;
-    vertical-align:middle;
+    vertical-align: middle;
     line-height: 50px; 
 }
 
@@ -159,7 +159,7 @@ a{
     text-decoration: underline;
 }
 
-div.language a{
+div.buttons a{
     text-decoration: none;
     color: black;
 }

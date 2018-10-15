@@ -13,7 +13,10 @@ from myapp.functions import modify as modify
 def hello(request, inp_number):
     if not inp_number.isdigit():
         inp = inp_number
-        dig = analysis.numeral_to_digits(inp_number, 'ukr')
+        try:
+            dig = analysis.numeral_to_digits(inp_number, 'ukr')
+        except:
+            return render(request, 'error_ukr.html')
         title = inp + ' - ' + dig
         header = '<p class="num">' + title + '</p>'
         try:
@@ -46,7 +49,10 @@ def hello(request, inp_number):
 def hello_cro(request, inp_number):
     if not inp_number.isdigit():
         inp = inp_number
-        dig = analysis.numeral_to_digits(inp_number, 'cro')
+        try:
+            dig = analysis.numeral_to_digits(inp_number, 'cro')
+        except:
+            return render(request, 'error_cro.html')
         title = inp + ' - ' + dig
         header = '<p class="num">' + title + '</p>'
         try:
