@@ -52,6 +52,10 @@ div.language:hover{
     background-color: #ffd02a;
 }
 
+div.language-selection{
+    background-color: #ffd02a;
+}
+
 div.info{
     float: left;
     height: 100%;
